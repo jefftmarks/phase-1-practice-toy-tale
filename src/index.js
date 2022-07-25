@@ -15,28 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-//Fetch request functions
-
-  //Function for making a GET request
-  function getResource(url){
-    return fetch(url)
-    .then(res => res.json());
-  }
-
-  //Function for making a POST request
-  function postResource(url, toy) {
-    return fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify(toy)
-    })
-    .then(res => res.json());
-  }
-
-
 //Render Toy Card Function
 function renderCard(toy) {
   //create html elements for card and provide class names when necessary
@@ -63,21 +41,19 @@ function renderCard(toy) {
 
   //add event listener to like button with function to increase likes
   btn.addEventListener('click', () => {
-    toy.likes++;
+    toy.likes++
     fetch(`http://localhost:3000/toys/${toy.id}`, {
       method: 'PATCH',
       headers: {
-        'Text-Content': 'application/json',
-        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Accept: 'application/jason'
       },
-      body: JSON.stringify({
-        'likes': toy.likes
-      })
+      body: JSON.stringify(toy)
     })
     .then(res => res.json())
     .then(toy => pLikes.textContent = toy.likes)
     .catch(e => console.error(e))
-  })
+  });
 }
 
 //Form handling
@@ -97,16 +73,25 @@ function renderCard(toy) {
       likes: 0
     }
 
-    //Render new toy card
-    postResource('http://localhost:3000/toys/', toy)
+    //Fetch POST request and render new toy card
+    fetch('http://localhost:3000/toys/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(toy)
+    })
+    .then(res => res.json())
     .then(renderCard)
     .catch(e => console.error(e));
   }
   
-//Invoking functions
+//Make fetch requests
 
-  //Fetch GET request preliminary toy data
-  getResource('http://localhost:3000/toys')
+  //Fetch GET request preliminary toy data and invoke renderCard
+  fetch('http://localhost:3000/toys')
+  .then(res => res.json())
   .then(toys => toys.forEach(renderCard))
   .catch(e => console.error(e));
 

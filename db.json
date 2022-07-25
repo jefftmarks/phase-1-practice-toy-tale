@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": 9
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 12
+      "likes": 25
     },
     {
       "id": 3,
@@ -49,10 +49,16 @@
       "likes": 1
     },
     {
-      "name": "Hot Dog",
-      "image": "https://www.foodservicedirect.com/media/catalog/product/1/0/10036669001413_dqmej7zbyflec3iu.jpg?width=1200&height=1200&quality=85&fit=bounds",
-      "likes": 2,
+      "name": "Hot Dog Man",
+      "image": "https://leitesculinaria.com/wp-content/uploads/2021/05/perfect-hot-dog.jpg",
+      "likes": 0,
       "id": 9
+    },
+    {
+      "name": "Cactus Pal",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjY8qQpEe2bTWpeyiz5lCsG_X3NIXQwG56AA&usqp=CAU",
+      "likes": 0,
+      "id": 10
     }
   ]
 }
